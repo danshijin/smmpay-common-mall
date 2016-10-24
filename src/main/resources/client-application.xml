@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd  
+        ">  
+  
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 --> 
+    <dubbo:application name="hehe_consumer" />  
+
+    <!-- 生成远程服务代理 -->  
+    <dubbo:reference id="authorService" timeout="200000" interface="com.smmpay.inter.AuthorService" url="dubbo://172.16.23.212:20880/com.smmpay.inter.AuthorService"/>
+    <dubbo:reference id="orderService" timeout="200000" interface="com.smmpay.inter.smmpay.OrderService" url="dubbo://172.16.23.212:20880/com.smmpay.inter.smmpay.OrderService"/>
+    <dubbo:reference id="mallService" timeout="200000" interface="com.smmpay.inter.smmpay.MallService" url="dubbo://172.16.23.212:20880/com.smmpay.inter.smmpay.MallService"/>
+    <dubbo:reference id="userAccountService" timeout="200000" interface="com.smmpay.inter.smmpay.UserAccountService" url="dubbo://172.16.23.212:20880/com.smmpay.inter.smmpay.UserAccountService"/>
+</beans> 
